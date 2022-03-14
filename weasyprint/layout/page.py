@@ -587,7 +587,7 @@ def make_page(context, root_box, page_type, resume_at, page_number,
         page_is_empty, positioned_boxes, positioned_boxes, adjoining_margins,
         discard=False)
     assert root_box
-    root_box.children = out_of_flow_boxes + root_box.children
+    root_box.children = list(out_of_flow_boxes) + root_box.children
 
     footnote_area = build.create_anonymous_boxes(footnote_area.deepcopy())
     footnote_area, _, _, _, _ = block_level_layout(
